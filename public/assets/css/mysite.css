@@ -1,0 +1,46 @@
+@import url(http://fonts.googleapis.com/css?family=Autour+One|Meie+Script|Armata|Rum+Raisin|Sonsie+One|Kavoon|Denk+One|Gravitas+One|Racing+Sans+One|Nosifer|Ropa+Sans|Offside|Titan+One|Paytone+One|Audiowide|Righteous|Faster+One|Russo+One|Germania+One|Krona+One|Emblema+One|Creepster|Delius+Unicase|Wallpoet|Sansita+One|Monoton|Kenia|Monofett);
+    /* Begin Royal Side Button Styles*/
+    #royal_sidebutton_tab {
+    font-family:"Righteous", cursive;
+    top:400px;
+    background-color:#d25a19;
+    color:#FFFFFF;
+    border-style:solid;
+    border-width:0px;
+    }
+    #royal_sidebutton_tab:hover {
+    background-color: #3EA2C7;
+    }
+    .royal_sidebutton_contents {
+    position:fixed;
+    margin:0;
+    padding:6px 13px 8px 13px;
+    text-decoration:none;
+    text-align:center;
+    font-size:18px;
+    font-weight:bold;
+    border-style:solid;
+    display:block;
+    z-index:100000;
+    }
+    .royal_sidebutton_left {
+    cursor: pointer;
+    transform-origin:0 0;
+    -moz-transform-origin:0 0;
+    -o-transform-origin:0 0;
+    -ms-transform-origin:0 0;
+    -webkit-transform:rotate(270deg);
+    -moz-transform:rotate(270deg);
+    -ms-transform:rotate(270deg);
+    -o-transform:rotate(270deg);
+    transform:rotate(270deg);
+    right:-84px;
+    -moz-border-radius:10px 10px 0px 0px;
+    border-radius:10px 10px 0px 0px;
+    }
+   .Headr {
+       position: relative;
+       z-index: 1000;
+       
+   } 
+   
