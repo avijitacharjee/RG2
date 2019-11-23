@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,40 @@ class UserController extends Controller
         $user->name=$request['name'];
         $user->email=$request['email'];
         $user->password=$request['password'];
+        $user->approved='false';
         $user->save();
         return 'saved successfully';
+    }
+    public function profile($id)
+    {
+        $user = User::find($id);
+        //return $user;
+        return view('user.profile',[
+            'user'=>$user,
+        ]);
+    }
+
+    public function delete($id)
+    {
+        $user= new User();
+        $user=$user->find($id);
+        $user->delete();
+        $user=DB::select("select * from user where approved='false'");
+        return view('teacher.studentRequests',[
+            'users'=>$user
+        ]);
+    }
+    public function submitPaperG(Request $request)
+    {
+        return view('user.submitPaper');
+    }
+    public function submitPaper(Request $request)
+    {
+        $file = $request->file('researchPaper');
+        $fileType =  $file->getClientOriginalExtension();
+        $fileName = $request->researchPaper.'.'.$fileType;
+        $directory = 'files/';
+        $fileURL = $directory.$fileName;
+        return $fileURL;
     }
 }

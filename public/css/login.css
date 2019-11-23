@@ -43,6 +43,9 @@ background-repeat: no-repeat;
 height: 100%;
 font-family: 'Numans', sans-serif;
 }
+.form {
+    margin: 20px;
+}
 
 .container{
 height: 100%;
@@ -50,6 +53,7 @@ align-content: center;
 }
 
 .card{
+margin: 0px auto;
 height: 370px;
 margin-top: auto;
 margin-bottom: auto;

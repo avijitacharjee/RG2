@@ -1,4 +1,7 @@
 @extends('layouts/app')
+@section('links')
+	<link rel='stylesheet' href='css/login.css'/>
+@endsection()
 @section('content')
 
 <div class="login">
@@ -8,7 +11,7 @@
 				<h3>Sign In</h3>
 			</div>
 			<div class="card-body">
-				<form method="POST">
+				<form method="POST" class= "form" id = "login-form">
                     {{ @csrf_field()}}
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
@@ -39,7 +42,7 @@
 			</div>
 			<div class="card-footer">
 				<div class="d-flex justify-content-center links">
-					Don't have an account?<a href="{{ route('/register') }}">Sign Up</a>
+					Don't have an account?<a href="/register">Sign Up</a>
 				</div>
 				<div class="d-flex justify-content-center">
 					<a href="#">Forgot your password?</a>

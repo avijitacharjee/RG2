@@ -54,9 +54,12 @@ class LoginController extends Controller
         $email=$request['email'];
         $password=$request['password'];
 
-    
+       
         $admin = DB::select("select * from admin where email='$email' AND password='$password'");
-        $user = DB::select("select * from user where email='$email' AND password='$password'");
+        $user =  DB::table('user')->where([
+            ['email', '=', '$email'],
+            ['password', '=', '$password'],
+        ]);
         $teacher = DB::select("select * from teacher where email='$email' AND password='$password'");
         if($admin!=null)
         {

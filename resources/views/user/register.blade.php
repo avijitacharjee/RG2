@@ -1,4 +1,7 @@
 @extends('layouts/app')
+@section('links')
+	<link rel='stylesheet' href='css/login.css'/>
+@endsection()
 @section('content')
 
 <div class="login">
@@ -8,7 +11,7 @@
 				<h3>Sign In</h3>
 			</div>
 			<div class="card-body">
-				<form method="POST">
+				<form method="POST" class="form">
                     {{ @csrf_field()}}
                     <div class="input-group form-group">
 						<div class="input-group-prepend">
