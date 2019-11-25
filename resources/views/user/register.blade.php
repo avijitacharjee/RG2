@@ -46,7 +46,7 @@
 						<p style="color:red"> {{$f ?? '' ?? ""}} </p>
 					@endif
 					<div class="form-group">
-						<input type="submit" value="Login" class="btn float-right login_btn">
+						<input type="submit" value="Sign up" class="btn float-right login_btn">
 					</div>
 				</form>
 			</div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use App\User;
+use App\ResearchPaper;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -65,11 +66,27 @@ class UserController extends Controller
     }
     public function submitPaper(Request $request)
     {
-        $file = $request->file('researchPaper');
-        $fileType =  $file->getClientOriginalExtension();
-        $fileName = $request->researchPaper.'.'.$fileType;
-        $directory = 'files/';
-        $fileURL = $directory.$fileName;
-        return $fileURL;
+        $validation = $request->validate([
+            'researchPaper'=>'required|mimetypes:application/pdf',
+            'description'=>'required',
+        ],
+        [
+            'researchPaper.required' => 'Please select a file',
+            'researchPaper.mimetypes:application/pdf'=>'Please select pdf',
+        ]
+    
+        );
+
+        $file=$request->file('researchPaper');
+        $loc= $request->researchPaper->storeAs('pdf', $request->researchPaper->getClientOriginalName());
+        
+
+        //Model->ResearchGateway
+        $rpaper = new ResearchPaper();
+        $rpaper->pdf_name=$request->name;
+        $rpaper->pdfLocation = $loc;
+        $rpaper->description = $request->description;
+        $rpaper->save();
+        return $request;
     }
 }

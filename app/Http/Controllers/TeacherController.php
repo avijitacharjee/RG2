@@ -32,4 +32,12 @@ class TeacherController extends Controller
             'users'=>$user
         ]);
     }
+    public function paperRequests()
+    {
+        $rpaper = new ResearchPaper();
+        $papers= $rpaper->all();
+        return view('teacher.paperRequests',[
+            'papers'=>$papers
+        ]) ;
+    }
 }
