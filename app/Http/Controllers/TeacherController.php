@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\ResearchPaper;
 use App\User;
 
 class TeacherController extends Controller
@@ -40,4 +42,31 @@ class TeacherController extends Controller
             'papers'=>$papers
         ]) ;
     }
+    public function viewPaper($id)
+    {
+        $rPaper= new ResearchPaper();
+        $paper=$rPaper->find($id);
+        $loc= $paper->pdfLocation;
+        $contents = Storage::get($loc);
+        /* return view('teacher.viewResearchPaper',[
+            'loc' => $loc
+        ]);
+        return response()->download($contents); */
+        return $contents;
+    }
+    public function paperApprove($id)
+    {
+        return "hi";
+    }
+    public function deletePaper($id)
+    {
+        $paper = new ResearchPaper();
+        $paper =  $paper->find($id);
+        $paper->delete();
+        $papers =  $paper->all();
+        return view('teacher.paperRequests',[
+            'papers'=>$papers
+        ]);
+    }
+
 }

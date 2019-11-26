@@ -86,8 +86,13 @@
             </a>
         </li>
         <li>
-    <A       href="/studentRequests" style="color: #FFFFFF;">StudentRequests</A>
-    </li>
+            <a href="/studentRequests" style="color: #FFFFFF;">StudentRequests</a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="{{ url('/paperRequests')}}" style="color: #FFFFFF; font-size: 14px">Paper Requests</a>
+                </li>
+            </ul>
+        </li>
    <!--  <li>
         <a href="know-writers.html"  style="color: #FFFFFF; font-size: 12px">Our Team</a>
     </li> -->

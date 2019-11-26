@@ -21,9 +21,15 @@ Route::get('/register','UserController@register');
 Route::post('/register','UserController@insert');
 Route::get('/user','UserController@index');
 Route::get('/teacher','TeacherController@index');
-Route::get('/teacher/studentRequests','TeacherController@studentRequests');
+Route::get('/studentRequests','TeacherController@studentRequests');
 Route::get('/studentProfile/{id}','UserController@profile')->name('studentProfile');
 Route::get('/studentApprove/{id}','TeacherController@approveStudent')->name('studentApprove');
 Route::get('/studentDelete/{id}','UserController@delete')->name('studentDelete');
 Route::get('/studentSubmitPaper','UserController@submitPaperG')->name('studentSubmitPaper');
 Route::post('/studentSubmitPaper','UserController@submitPaper')->name('studentSubmitPaper');
+//pdf
+Route::get('/paperRequests','TeacherController@paperRequests');
+Route::get('/viewPaper/{id}','TeacherController@viewPaper');
+Route::get('/paperApprove/{id}','TeacherController@paperApprove')->name('paperApprove');
+Route::get('/paperDelete/{id}','TeacherController@deletePaper')->name('paperDelete');
+

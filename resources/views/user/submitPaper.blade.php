@@ -53,8 +53,6 @@
                 </div>
                 
             </form>
-     
-          
         </div>
       </div>
       <div class="file-upload-bar-closed"></div>
